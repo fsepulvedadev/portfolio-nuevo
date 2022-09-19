@@ -15,7 +15,8 @@ const Footer = () => {
       <div>
         <Image
           src={profilePic}
-          className="w-20 rounded-full grayscale hover:scale-105 hover:grayscale-0 ease-in-out duration-300"
+          alt="Foto de perfil"
+          className="w-20 mask mask-hexagon-2 grayscale hover:grayscale-0 ease-in-out duration-1000"
         />
         <p className="font-bold">
           Francisco Sepulveda <br />

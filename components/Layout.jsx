@@ -4,11 +4,11 @@ import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <div data-theme="cmyk">
       <Navbar />
-      <main>{children}</main>
+      <main className="bg-base-300">{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };
 
