@@ -28,7 +28,7 @@ const Proyect = ({ className, foto, title, description, techs, buttons }) => {
           <p>{description}</p>
           <div className="card-actions justify-end">
             {techs?.map((tech, key) => (
-              <div id="key" className="badge badge-success">
+              <div id={key} className="badge badge-success">
                 {tech}
               </div>
             ))}

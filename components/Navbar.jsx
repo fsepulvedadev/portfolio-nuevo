@@ -74,7 +74,12 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end hidden md:flex justify-end items-center">
-          <a href="https://github.com/panchixnrc" target="_blank" className="">
+          <a
+            href="https://github.com/panchixnrc"
+            target="_blank"
+            rel="noreferrer"
+            className=""
+          >
             <IoLogoGithub
               size="1.5rem"
               className="hover:scale-125  ease-in-out duration-300"
@@ -84,6 +89,7 @@ const Navbar = () => {
             href="https://www.linkedin.com/in/fsepulvedadev"
             target="_blank"
             className="ml-2"
+            rel="noreferrer"
           >
             <IoLogoLinkedin
               size="1.5rem"
@@ -94,6 +100,7 @@ const Navbar = () => {
             href="https://twitter.com/panchisepulveda"
             target="_blank"
             className="ml-2"
+            rel="noreferrer"
           >
             <IoLogoTwitter
               size="1.5rem"
