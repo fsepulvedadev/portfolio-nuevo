@@ -18,6 +18,8 @@ const Proyects = () => {
           foto={palta}
           className="md:col-span-4"
           buttons={true}
+          repo="https://github.com/panchixnrc/paltastore-franciscosepulveda"
+          live="https://palta-store.netlify.app/"
         />
         <Proyect
           description="Trabajo freelance desarrollado para una empresa de construccion, landing page desarrollada en html utilizando Bootstrap para estilos, ademas cuenta con un servidor en Node para el manejo del formulario de contacto."
@@ -26,6 +28,8 @@ const Proyects = () => {
           foto={modular}
           className="md:col-span-2"
           buttons={true}
+          repo="https://github.com/panchixnrc/modularweb"
+          live="https://www.modularneuquen.com/"
         />
         <Proyect
           description="Web app para gestion de tareas realizada con React.js y Tailwind.css"
@@ -34,6 +38,8 @@ const Proyects = () => {
           foto={tareas}
           className="md:col-span-2"
           buttons={true}
+          repo="https://github.com/panchixnrc/tareas-app"
+          live="https://tareasappfs.netlify.app/"
         />
       </div>
     </div>

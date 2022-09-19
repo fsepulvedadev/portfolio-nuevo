@@ -2,7 +2,16 @@ import React from "react";
 import Image from "next/future/image";
 import fotoDefault from "../assets/fotomia2.jpg";
 
-const Proyect = ({ className, foto, title, description, techs, buttons }) => {
+const Proyect = ({
+  className,
+  foto,
+  title,
+  description,
+  techs,
+  buttons,
+  repo,
+  live,
+}) => {
   return (
     <div
       className={`indicator w-full h-full bg-base-100 shadow-2xl ${className}`}
@@ -11,8 +20,16 @@ const Proyect = ({ className, foto, title, description, techs, buttons }) => {
         <div className="indicator-item indicator-bottom indicator-start flex ml-32">
           {buttons && (
             <>
-              <button className="btn btn-accent w-20">Live demo</button>
-              <button className="btn btn-accent ml-2 w-20">Repo</button>
+              <button className="btn btn-accent w-20">
+                <a href={live} target="_blank" rel="noopener noreferrer">
+                  Live demo
+                </a>
+              </button>
+              <button className="btn btn-accent ml-2 w-20">
+                <a href={repo} target="_blank" rel="noopener noreferrer">
+                  Repo
+                </a>
+              </button>
             </>
           )}
         </div>
