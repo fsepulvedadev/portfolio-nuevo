@@ -20,7 +20,7 @@ const Proyect = ({ className, foto, title, description, techs, buttons }) => {
           <Image
             className="w-full h-72 grayscale"
             src={foto ? foto : fotoDefault}
-            alt="Shoes"
+            alt="Shoesss"
           />
         </figure>
         <div className="card-body">
