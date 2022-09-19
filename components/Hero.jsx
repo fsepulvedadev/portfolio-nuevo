@@ -11,6 +11,7 @@ const Hero = () => {
           <Image
             src={fotoMia}
             className="md:max-w-sm rounded-lg shadow-2xl mask mask-parallelogram-2 grayscale hover:grayscale-0 duration-1000 "
+            alt="foto"
           />
           <div className="text-4xl md:text-8xl font-bold">
             <RoughNotationGroup show={true}>
