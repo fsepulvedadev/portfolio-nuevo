@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.7.0",
     "daisyui": "^2.27.0",
     "dotenv": "^16.0.2",
     "next": "12.3.0",

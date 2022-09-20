@@ -1,47 +1,43 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 import { CgSpinner } from "react-icons/cg";
+import emailjs from "@emailjs/browser";
 
 const Form = () => {
   const [emailEnviado, setEmailEnviado] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [enviando, setEnviando] = useState(false);
+  const form = useRef();
 
-  const submitContact = async (event) => {
-    event.preventDefault();
+  const sendEmail = (e) => {
+    e.preventDefault();
     setEnviando(true);
-    const contact = {
-      name: event.target.name.value,
-      apellido: event.target.apellido.value,
-      email: event.target.email.value,
-      mensaje: event.target.mensaje.value,
-    };
 
-    const handleResponse = (status) => {
-      console.log(status);
-      if (status === 200) {
-        setEmailEnviado(true);
-        setEnviando(false);
-        setTimeout(() => {
-          setEmailEnviado(false);
-        }, 5000);
-      } else if (status === 400) {
-        setEmailError(true);
-        setEnviando(false);
-        setTimeout(() => {
-          setEmailError(false);
-        }, 5000);
-      }
-    };
-
-    const res = await fetch("api/form", {
-      body: JSON.stringify(contact),
-      headers: { "Content-type": "application/json" },
-      method: "POST",
-    });
-    const result = await res;
-    handleResponse(result.status);
-    console.log(result);
+    emailjs
+      .sendForm(
+        "service_vb3b9kq",
+        "template_c1i8xna",
+        form.current,
+        "4ouGEGtNjG9Sd2o7F"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setEmailEnviado(true);
+          setEnviando(false);
+          setTimeout(() => {
+            setEmailEnviado(false);
+          }, 3000);
+        },
+        (error) => {
+          console.log(error.text);
+          setEmailError(true);
+          setEnviando(false);
+          setTimeout(() => {
+            setEmailError(false);
+          }, 3000);
+        }
+      );
   };
   return (
     <>
@@ -85,13 +81,14 @@ const Form = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm drop-shadow-lg bg-base-100">
             <div className="card-body">
-              <form className="w-full h-full" onSubmit={submitContact}>
+              <form ref={form} className="w-full h-full" onSubmit={sendEmail}>
                 <div className="form-control">
                   <label className="input-group input-group-vertical">
                     <span className="bg-accent">Nombre</span>
                     <input
                       type="text"
                       id="name"
+                      name="name"
                       autoComplete="name"
                       required
                       placeholder="Carla"
@@ -104,6 +101,7 @@ const Form = () => {
                     <span className="bg-accent">Apellido</span>
                     <input
                       type="text"
+                      name="apellido"
                       id="apellido"
                       autoComplete="on"
                       placeholder="Recluter"
@@ -118,6 +116,7 @@ const Form = () => {
                     <input
                       type="email"
                       id="email"
+                      name="email"
                       required
                       placeholder="Carla@recluter.com"
                       className="input input-bordered"
@@ -129,6 +128,7 @@ const Form = () => {
 
                   <textarea
                     required
+                    name="mensaje"
                     id="mensaje"
                     className="textarea textarea-bordered"
                     placeholder="Hola Fran! bla..."
