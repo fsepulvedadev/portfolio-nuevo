@@ -7,6 +7,10 @@ const Form = () => {
   const [emailEnviado, setEmailEnviado] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [enviando, setEnviando] = useState(false);
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [email, setEmail] = useState("");
+  const [mensaje, setMensaje] = useState("");
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -24,6 +28,10 @@ const Form = () => {
         (result) => {
           console.log(result.text);
           setEmailEnviado(true);
+          setNombre("");
+          setApellido("");
+          setEmail("");
+          setMensaje("");
           setEnviando(false);
           setTimeout(() => {
             setEmailEnviado(false);
@@ -86,6 +94,10 @@ const Form = () => {
                   <label className="input-group input-group-vertical">
                     <span className="bg-accent">Nombre</span>
                     <input
+                      onChange={(e) => {
+                        setNombre(e.target.value);
+                      }}
+                      value={nombre}
                       type="text"
                       id="name"
                       name="name"
@@ -100,6 +112,10 @@ const Form = () => {
                   <label className="input-group input-group-vertical">
                     <span className="bg-accent">Apellido</span>
                     <input
+                      onChange={(e) => {
+                        setApellido(e.target.value);
+                      }}
+                      value={apellido}
                       type="text"
                       name="apellido"
                       id="apellido"
@@ -114,6 +130,10 @@ const Form = () => {
                   <label className="input-group input-group-vertical">
                     <span className="bg-accent">Email</span>
                     <input
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
+                      value={email}
                       type="email"
                       id="email"
                       name="email"
@@ -128,6 +148,10 @@ const Form = () => {
 
                   <textarea
                     required
+                    onChange={(e) => {
+                      setMensaje(e.target.value);
+                    }}
+                    value={mensaje}
                     name="mensaje"
                     id="mensaje"
                     className="textarea textarea-bordered"
