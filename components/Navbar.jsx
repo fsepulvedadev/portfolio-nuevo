@@ -1,14 +1,21 @@
-import React from "react";
+import { useState } from "react";
 import { IoLogoGithub, IoLogoLinkedin, IoLogoTwitter } from "react-icons/io5";
 import Link from "next/link";
 
 const Navbar = () => {
+  const [links, setLinks] = useState(["Inicio", "Experiencia", "Contacto"]);
+  const [openNav, setOpenNav] = useState(false);
   return (
     <div className="flex justify-center w-full bg-base-100 fixed bg-opacity-90 backdrop-blur-sm z-20">
       <div className="navbar w-full  md:w-10/12 ">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <label
+              onClick={() => {
+                setOpenNav(!openNav);
+              }}
+              className="btn btn-ghost lg:hidden"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -25,25 +32,17 @@ const Navbar = () => {
               </svg>
             </label>
             <ul
-              tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 hover:bg-none"
+              className={`menu menu-compact  mt-3 p-2 shadow bg-base-100 rounded-box w-52 ${
+                openNav ? "absolute" : "hidden"
+              }`}
             >
-              <li>
-                <a>Inicio</a>
-              </li>
-
-              <li>
-                <a>Sobre mi</a>
-              </li>
-              <li>
-                <a>Experiencia</a>
-              </li>
-              <li>
-                <a>Proyectos</a>
-              </li>
-              <li>
-                <a>Contacto</a>
-              </li>
+              {links.map((link, key) => {
+                return (
+                  <li tabIndex={0} key={key}>
+                    <a href="">{link}</a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <a className="btn bg-transparent hover:bg-transparent border-none text-neutral  normal-case text-2xl">
@@ -54,22 +53,13 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
-            <li>
-              <a>Inicio</a>
-            </li>
-
-            <li>
-              <a>Sobre mi</a>
-            </li>
-            <li>
-              <a>Experiencia</a>
-            </li>
-            <li>
-              <a>Proyectos</a>
-            </li>
-            <li>
-              <a>Contacto</a>
-            </li>
+            {links.map((link, key) => {
+              return (
+                <li key={key}>
+                  <a href="">{link}</a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
