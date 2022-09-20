@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="w-11/12 flex justify-center flex-col items-center pt-[70px] h-full">
+      <main className="w-11/12 flex justify-center flex-col items-center h-full">
         <Hero />
         <Proyects />
       </main>

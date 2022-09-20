@@ -38,25 +38,40 @@ const Navbar = () => {
             >
               {links.map((link, key) => {
                 return (
-                  <li tabIndex={0} key={key}>
-                    <a href="">{link}</a>
+                  <li
+                    onClick={() => {
+                      setOpenNav(false);
+                    }}
+                    key={key}
+                  >
+                    {link.toLowerCase() === "inicio" ? (
+                      <Link href={`/`}>{link}</Link>
+                    ) : (
+                      <Link href={`/${link.toLowerCase()}`}>{link}</Link>
+                    )}
                   </li>
                 );
               })}
             </ul>
           </div>
-          <a className="btn bg-transparent hover:bg-transparent border-none text-neutral  normal-case text-2xl">
-            {" "}
-            <span className="font-bold text-primary">FS</span> epulveda{" "}
-            <span className="font-bold text-primary">DEV</span>
-          </a>
+          <Link href={"/"}>
+            <a className="btn bg-transparent hover:bg-transparent border-none text-neutral normal-case text-2xl">
+              {" "}
+              <span className="font-bold text-primary">FS</span> epulveda{" "}
+              <span className="font-bold text-primary">DEV</span>
+            </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             {links.map((link, key) => {
               return (
                 <li key={key}>
-                  <a href="">{link}</a>
+                  {link.toLowerCase() === "inicio" ? (
+                    <Link href={`/`}>{link}</Link>
+                  ) : (
+                    <Link href={`/${link.toLowerCase()}`}>{link}</Link>
+                  )}
                 </li>
               );
             })}
