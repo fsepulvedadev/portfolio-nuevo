@@ -25,6 +25,7 @@ const Proyects = () => {
           description="Trabajo freelance desarrollado para una empresa de construccion, landing page desarrollada en html utilizando Bootstrap para estilos, ademas cuenta con un servidor en Node para el manejo del formulario de contacto."
           techs={["Javascript", "Bootstrap", "Node", "HTML"]}
           title="Modular Espacios"
+          id="modular"
           foto={modular}
           className="md:col-span-2"
           buttons={true}

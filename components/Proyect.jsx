@@ -11,10 +11,12 @@ const Proyect = ({
   buttons,
   repo,
   live,
+  id,
 }) => {
   return (
     <div
       className={`indicator w-full h-full bg-base-100 shadow-2xl ${className}`}
+      id={id}
     >
       <div className={` card overflow-visible`}>
         <div className="indicator-item indicator-bottom indicator-start flex ml-32">

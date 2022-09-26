@@ -5,6 +5,7 @@ import Link from "next/link";
 const Navbar = () => {
   const [links, setLinks] = useState(["Inicio", "Experiencia", "Contacto"]);
   const [openNav, setOpenNav] = useState(false);
+  const [currentTab, setCurrentTab] = useState("inicio");
   return (
     <div className="flex justify-center w-full bg-base-100 fixed bg-opacity-90 backdrop-blur-sm z-20">
       <div className="navbar w-full  md:w-10/12 ">
@@ -45,7 +46,33 @@ const Navbar = () => {
                     key={key}
                   >
                     {link.toLowerCase() === "inicio" ? (
-                      <Link href={`/`}>{link}</Link>
+                      <Link href={`/`}>
+                        <span
+                          onClick={() => {
+                            setCurrentTab(link.toLowerCase());
+                          }}
+                          className={`${
+                            currentTab === "inicio"
+                              ? "font-bold"
+                              : "font-normal"
+                          }`}
+                        >
+                          {" "}
+                          <span
+                            onClick={() => {
+                              setCurrentTab(link.toLowerCase());
+                            }}
+                            className={`${
+                              currentTab === "inicio"
+                                ? "font-bold"
+                                : "font-normal"
+                            }`}
+                          >
+                            {" "}
+                            {link}
+                          </span>
+                        </span>
+                      </Link>
                     ) : (
                       <Link href={`/${link.toLowerCase()}`}>{link}</Link>
                     )}
@@ -68,9 +95,35 @@ const Navbar = () => {
               return (
                 <li key={key}>
                   {link.toLowerCase() === "inicio" ? (
-                    <Link href={`/`}>{link}</Link>
+                    <Link href={`/`}>
+                      <span
+                        onClick={() => {
+                          setCurrentTab(link.toLowerCase());
+                        }}
+                        className={`${
+                          currentTab === "inicio" ? "font-bold" : "font-normal"
+                        }`}
+                      >
+                        {" "}
+                        {link}
+                      </span>
+                    </Link>
                   ) : (
-                    <Link href={`/${link.toLowerCase()}`}>{link}</Link>
+                    <Link href={`/${link.toLowerCase()}`}>
+                      <span
+                        onClick={() => {
+                          setCurrentTab(link.toLowerCase());
+                        }}
+                        className={`${
+                          currentTab === link.toLowerCase()
+                            ? "font-bold"
+                            : "font-normal"
+                        }`}
+                      >
+                        {" "}
+                        {link}
+                      </span>
+                    </Link>
                   )}
                 </li>
               );
@@ -87,7 +140,7 @@ const Navbar = () => {
           >
             <IoLogoGithub
               size="1.5rem"
-              className="hover:scale-125  ease-in-out duration-300"
+              className="hover:scale-125  ease-in-out duration-300 text-primary"
             />
           </a>
           <a
@@ -98,7 +151,7 @@ const Navbar = () => {
           >
             <IoLogoLinkedin
               size="1.5rem"
-              className="hover:scale-125 ease-in-out duration-300"
+              className="hover:scale-125 ease-in-out duration-300 text-primary"
             />
           </a>
           <a
@@ -109,7 +162,7 @@ const Navbar = () => {
           >
             <IoLogoTwitter
               size="1.5rem"
-              className="hover:scale-125 ease-in-out duration-300"
+              className="hover:scale-125 ease-in-out duration-300 text-primary"
             />
           </a>
         </div>

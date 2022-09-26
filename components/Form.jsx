@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 import { CgSpinner } from "react-icons/cg";
+import { FaWhatsapp } from "react-icons/fa";
+import { MdOutlineAlternateEmail } from "react-icons/md";
 import emailjs from "@emailjs/browser";
 
 const Form = () => {
@@ -69,7 +71,7 @@ const Form = () => {
       </div>
       <div className="hero h-8/12 shadow-2xl border border-danger rounded">
         <div className="hero-content flex-col  lg:flex-row-reverse">
-          <div className="text-center lg:text-left flex-col ">
+          <div className="text-center lg:text-left flex-col">
             <h1 className="text-3xl md:text-5xl font-bold text-info pt-6 lg:text-center">
               Hablemos!
             </h1>
@@ -86,13 +88,23 @@ const Form = () => {
                 </RoughNotation>
               </RoughNotationGroup>
             </p>
+            <div className=" flex items-center flex-col mt-4">
+              <p className="flex items-center font-bold text-success justify-start mr-12">
+                <FaWhatsapp size={"20px"} className="mr-2" /> +54 9 299 5 941
+                966
+              </p>
+              <p className="flex items-center font-bold text-success mt-2">
+                <MdOutlineAlternateEmail size={"20px"} className="mr-2" />{" "}
+                fsepulvedadev@gmail.com
+              </p>
+            </div>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm drop-shadow-lg bg-base-100">
-            <div className="card-body">
+            <div className="card-body bg-accent-focus">
               <form ref={form} className="w-full h-full" onSubmit={sendEmail}>
                 <div className="form-control">
                   <label className="input-group input-group-vertical">
-                    <span className="bg-accent">Nombre</span>
+                    <span className="bg-accent-content text-white">Nombre</span>
                     <input
                       onChange={(e) => {
                         setNombre(e.target.value);
@@ -110,7 +122,9 @@ const Form = () => {
                 </div>
                 <div className="form-control mt-4">
                   <label className="input-group input-group-vertical">
-                    <span className="bg-accent">Apellido</span>
+                    <span className="bg-accent-content text-white">
+                      Apellido
+                    </span>
                     <input
                       onChange={(e) => {
                         setApellido(e.target.value);
@@ -128,7 +142,7 @@ const Form = () => {
                 </div>
                 <div className="form-control mt-4">
                   <label className="input-group input-group-vertical">
-                    <span className="bg-accent">Email</span>
+                    <span className="bg-accent-content text-white">Email</span>
                     <input
                       onChange={(e) => {
                         setEmail(e.target.value);
@@ -144,7 +158,7 @@ const Form = () => {
                   </label>
                 </div>
                 <label className="input-group input-group-vertical mt-4">
-                  <span className="bg-accent">Mensaje</span>
+                  <span className="bg-accent-content text-white">Mensaje</span>
 
                   <textarea
                     required
@@ -162,7 +176,7 @@ const Form = () => {
                   <button
                     disabled={enviando}
                     type="submit"
-                    className="btn btn-secondary"
+                    className="btn btn-success"
                   >
                     {enviando ? (
                       <span className="flex items-center">
