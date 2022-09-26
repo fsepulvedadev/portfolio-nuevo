@@ -76,8 +76,8 @@ const Form = () => {
               Hablemos!
             </h1>
             <p className="py-6 w-full lg:w-1/2 text-info-content text-xl m-auto">
-              Podes contactarme por llenando este formulario o en cualquiera de
-              mis redes sociales. Respondo en unos
+              Podes contactarme llenando este formulario o en cualquiera de mis
+              redes sociales. Respondo en unos
               <RoughNotationGroup show={true}>
                 <RoughNotation
                   className="ml-1"
