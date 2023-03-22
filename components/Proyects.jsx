@@ -1,46 +1,55 @@
 import React from "react";
 import Proyect from "./Proyect";
 import palta from "../assets/palta-store.PNG";
-import modular from "../assets/modular.PNG";
-import tareas from "../assets/tareas.PNG";
+import calculadora from "../assets/calculadora.png";
+import maiten from "../assets/maiten.png";
 
 const Proyects = () => {
   return (
     <div className="w-full my-6">
-      <h1 className="text-4xl md:text-9xl font-bold text-secondary mt-4 text-right -mb-1">
+      <h1 className="mt-4 -mb-1 text-4xl font-bold text-right md:text-9xl text-secondary">
         Proyectos
       </h1>
-      <div className="w-full h-full grid md:grid-cols-4 place-items-center gap-10 mb-6">
+      <div className="grid w-full h-full gap-10 mb-6 md:grid-cols-4 place-items-center">
+        <Proyect
+          description="Proyecto desarrollado en mi trabajo actual en COPADE donde soy el unico desarrollador del equipo. Es un visor web para datos estadisticos, en este caso de espacios verdes en la provincia de neuquen."
+          techs={["Javascript", "Tailwind", "Leaflet.js", "GIS"]}
+          title="Maiten"
+          id="modular"
+          foto={maiten}
+          className="md:col-span-4"
+          buttons={true}
+          repo="https://github.com/panchixnrc/maiten-demo"
+          live="https://maiten-demo.vercel.app/"
+        />
         <Proyect
           description="E-commerce desarrollado con React utilizando varios hooks y Context para el manejo de el estado global. Los productos se almacenan utilizando Firebase como base de datos cloud"
           techs={["React", "Bootstrap", "Firebase"]}
           title="Palta Store"
           foto={palta}
-          className="md:col-span-4"
+          className="md:col-span-2"
           buttons={true}
           repo="https://github.com/panchixnrc/paltastore-franciscosepulveda"
           live="https://palta-store.netlify.app/"
         />
+
         <Proyect
-          description="Trabajo freelance desarrollado para una empresa de construccion, landing page desarrollada en html utilizando Bootstrap para estilos, ademas cuenta con un servidor en Node para el manejo del formulario de contacto."
-          techs={["Javascript", "Bootstrap", "Node", "HTML"]}
-          title="Modular Espacios"
-          id="modular"
-          foto={modular}
+          description="Progressive Web App para convertir moneda extranjera a pesos argentinos calculando el dolar qatar para saber cuanto se va a pagar en la tarjeta de credito al realizar compras en el exterior realizada con React.js y Tailwind.css para el Front-End que consume una API en express la cual realiza web scrapping para obtener el valor de las monedas cada cierto intervalo."
+          techs={[
+            "React",
+            "Tailwind",
+            "Express",
+            "API REST",
+            "Web Scrapping",
+            "PWA",
+          ]}
+          title="Calculadora Dolar Qatar"
+          foto={calculadora}
           className="md:col-span-2"
           buttons={true}
-          repo="https://github.com/panchixnrc/modularweb"
-          live="https://www.modularneuquen.com/"
-        />
-        <Proyect
-          description="Web app para gestion de tareas realizada con React.js y Tailwind.css"
-          techs={["React", "Tailwind"]}
-          title="Tareas App"
-          foto={tareas}
-          className="md:col-span-2"
-          buttons={true}
-          repo="https://github.com/panchixnrc/tareas-app"
-          live="https://tareasappfs.netlify.app/"
+          repo="https://github.com/panchixnrc/conversor-pwa"
+          live="https://calculadora-dolarqatar.vercel.app/"
+          backend="https://github.com/panchixnrc/dolar-api"
         />
       </div>
     </div>

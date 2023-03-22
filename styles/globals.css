@@ -18,6 +18,11 @@ input:focus {
   outline: none !important;
 }
 
+.leaflet {
+  filter: invert(55%) sepia(98%) saturate(4030%) hue-rotate(309deg)
+    brightness(95%) contrast(91%) !important;
+}
+
 a {
   color: inherit;
   text-decoration: none;

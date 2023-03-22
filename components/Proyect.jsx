@@ -12,6 +12,7 @@ const Proyect = ({
   repo,
   live,
   id,
+  backend,
 }) => {
   return (
     <div
@@ -19,19 +20,26 @@ const Proyect = ({
       id={id}
     >
       <div className={` card overflow-visible`}>
-        <div className="indicator-item indicator-bottom indicator-start flex ml-32">
+        <div className="flex ml-32 indicator-item indicator-bottom indicator-start">
           {buttons && (
             <>
-              <button className="btn btn-accent w-20">
+              <button className="w-20 btn btn-accent">
                 <a href={live} target="_blank" rel="noopener noreferrer">
-                  Live demo
+                  Live
                 </a>
               </button>
-              <button className="btn btn-accent ml-2 w-20">
+              <button className="w-20 ml-2 btn btn-accent">
                 <a href={repo} target="_blank" rel="noopener noreferrer">
                   Repo
                 </a>
               </button>
+              {backend && (
+                <button className="w-20 ml-2 btn btn-accent">
+                  <a href={backend} target="_blank" rel="noopener noreferrer">
+                    Repo BackEnd
+                  </a>
+                </button>
+              )}
             </>
           )}
         </div>
@@ -43,9 +51,9 @@ const Proyect = ({
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title text-primary text-3xl">{title}</h2>
+          <h2 className="text-3xl card-title text-primary">{title}</h2>
           <p>{description}</p>
-          <div className="card-actions justify-end">
+          <div className="justify-end card-actions">
             {techs?.map((tech, key) => (
               <div key={key} className="badge badge-success">
                 {tech}
